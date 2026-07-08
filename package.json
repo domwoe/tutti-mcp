@@ -3,6 +3,15 @@
   "version": "0.1.0",
   "description": "MCP server and CLI for searching tutti.ch classifieds.",
   "license": "MIT",
+  "author": "domwoe",
+  "homepage": "https://github.com/domwoe/tutti-mcp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/domwoe/tutti-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/domwoe/tutti-mcp/issues"
+  },
   "type": "module",
   "publishConfig": {
     "access": "public"
