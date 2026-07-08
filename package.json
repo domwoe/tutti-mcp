@@ -1,0 +1,33 @@
+{
+  "name": "tutti-mcp",
+  "version": "0.1.0",
+  "description": "MCP server and CLI for searching tutti.ch classifieds.",
+  "type": "module",
+  "bin": {
+    "tutti-mcp": "./dist/mcp.js",
+    "tutti": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "tutti-api": "^2.1.1",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^4.0.0"
+  }
+}

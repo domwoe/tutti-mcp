@@ -1,0 +1,18 @@
+import { defineConfig } from "tsup";
+
+export default defineConfig({
+  entry: {
+    mcp: "src/mcp.ts",
+    cli: "src/cli.ts"
+  },
+  format: ["esm"],
+  target: "node20",
+  platform: "node",
+  clean: true,
+  dts: true,
+  sourcemap: true,
+  splitting: false,
+  banner: {
+    js: "#!/usr/bin/env node"
+  }
+});
