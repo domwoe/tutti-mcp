@@ -1,0 +1,121 @@
+{
+  "totalCount": 9854,
+  "pageInfo": {
+    "hasNextPage": true,
+    "endCursor": "eyJ0IjoxNzgzNTQxNDg4LCJjdiI6ODM0Mzc5NjUzLCJvIjozMCwic20iOjAsInNhIjpmYWxzZX0="
+  },
+  "listing": {
+    "__typename": "Listing",
+    "listingID": "79488731",
+    "title": "Velo-Montagest\u00e4nder / Reparaturst\u00e4nder zu verkaufen",
+    "address": null,
+    "formattedPrice": "80.-",
+    "primaryCategory": {
+      "categoryID": "bicycles",
+      "label": "Velos"
+    },
+    "images": [
+      {
+        "rendition": {
+          "src": "https://c.tutti.ch/big/8910858404.jpg"
+        }
+      },
+      {
+        "rendition": {
+          "src": "https://c.tutti.ch/big/5610760892.jpg"
+        }
+      },
+      {
+        "rendition": {
+          "src": "https://c.tutti.ch/big/8826966569.jpg"
+        }
+      }
+    ],
+    "timestamp": "2026-07-08T22:10:11+02:00",
+    "postcodeInformation": {
+      "canton": {
+        "name": "Bern",
+        "shortName": "BE",
+        "circularIcon": {
+          "src": "https://cdn.tutti.ch/cantons/be.svg"
+        }
+      },
+      "locationName": "Bern",
+      "postcode": "3007"
+    },
+    "highlighted": false,
+    "thumbnail": {
+      "rendition": {
+        "src": "https://c.tutti.ch/big/8910858404.jpg"
+      }
+    },
+    "sellerInfo": {
+      "publicAccountID": "8824920371437053126",
+      "alias": "Vira Kokhana",
+      "logo": null,
+      "subscriptionInfo": null
+    },
+    "formattedSource": null
+  },
+  "detail": {
+    "__typename": "Listing",
+    "listingID": "79488731",
+    "body": "Stabiler Fahrrad(Velo)-Reparaturst\u00e4nder mit h\u00f6henverstellbarer Teleskopstange und Halterung zum sicheren Fixieren des Fahrrads. Ideal f\u00fcr Wartung, Reinigung und Reparaturen. Zusammenklappbar, platzsparend, guter gebrauchter Zustand, voll funktionsf\u00e4hig.\nAbholung in Bern",
+    "address": null,
+    "formattedPrice": "80.-",
+    "formattedSource": null,
+    "highlighted": false,
+    "images": [
+      {
+        "rendition": {
+          "src": "https://c.tutti.ch/big/8910858404.jpg"
+        }
+      },
+      {
+        "rendition": {
+          "src": "https://c.tutti.ch/big/5610760892.jpg"
+        }
+      },
+      {
+        "rendition": {
+          "src": "https://c.tutti.ch/big/8826966569.jpg"
+        }
+      }
+    ],
+    "language": "DE",
+    "postcodeInformation": {
+      "canton": {
+        "name": "Bern",
+        "shortName": "BE",
+        "circularIcon": {
+          "src": "https://cdn.tutti.ch/cantons/be.svg"
+        }
+      },
+      "locationName": "Bern",
+      "postcode": "3007"
+    },
+    "primaryCategory": {
+      "categoryID": "bicycles",
+      "label": "Velos",
+      "parent": {
+        "categoryID": "sportsOutdoors",
+        "label": "Sport & Outdoor"
+      }
+    },
+    "properties": [],
+    "sellerInfo": {
+      "publicAccountID": "8824920371437053126",
+      "alias": "Vira Kokhana",
+      "logo": null,
+      "subscriptionInfo": null
+    },
+    "thumbnail": {
+      "rendition": {
+        "src": "https://c.tutti.ch/big/8910858404.jpg"
+      }
+    },
+    "timestamp": "2026-07-08T22:10:11+02:00",
+    "title": "Velo-Montagest\u00e4nder / Reparaturst\u00e4nder zu verkaufen",
+    "externalURL": null
+  }
+}
