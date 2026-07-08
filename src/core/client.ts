@@ -1,5 +1,6 @@
 import { TuttiClient, type Locality, type SearchBuilder } from "tutti-api";
 import { mapCategoryTree, mapListingDetail, mapListingSummary, mapLocality } from "./mapping.js";
+import { runWithThrottleAndRetry, type ThrottledRetry } from "./throttle.js";
 import type { CategoryNode, LocalitySummary, SearchResultPage, TuttiAdapter, TuttiSearchParams } from "./types.js";
 
 let singleton: TuttiClient | null = null;
@@ -9,7 +10,7 @@ function getClient(): TuttiClient {
   return singleton;
 }
 
-export function createTuttiAdapter(client = getClient()): TuttiAdapter {
+export function createTuttiAdapter(client = getClient(), run: ThrottledRetry = runWithThrottleAndRetry): TuttiAdapter {
   return {
     async search(params: TuttiSearchParams): Promise<SearchResultPage> {
       const limit = normalizeLimit(params.limit);
@@ -27,7 +28,7 @@ export function createTuttiAdapter(client = getClient()): TuttiAdapter {
       }
 
       if (params.location) {
-        const matches = await client.localities.search(params.location);
+        const matches = await run(() => client.localities.search(params.location ?? ""));
         resolvedLocation = matches[0];
         if (!resolvedLocation) {
           throw new Error(`No locality matched "${params.location}" - try search_localities`);
@@ -49,7 +50,7 @@ export function createTuttiAdapter(client = getClient()): TuttiAdapter {
         builder = builder.cursor(params.cursor);
       }
 
-      const page = await builder.fetch();
+      const page = await run(() => builder.fetch());
 
       return {
         totalCount: page.totalCount,
@@ -60,15 +61,15 @@ export function createTuttiAdapter(client = getClient()): TuttiAdapter {
     },
 
     async getListing(id: string) {
-      return mapListingDetail(await client.listings.get(id));
+      return mapListingDetail(await run(() => client.listings.get(id)));
     },
 
     async getCategories(): Promise<CategoryNode[]> {
-      return mapCategoryTree(await client.categories.tree());
+      return mapCategoryTree(await run(() => client.categories.tree()));
     },
 
     async searchLocalities(text: string): Promise<LocalitySummary[]> {
-      return (await client.localities.search(text)).map(mapLocality);
+      return (await run(() => client.localities.search(text))).map(mapLocality);
     }
   };
 }

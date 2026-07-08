@@ -55,7 +55,7 @@ class FakeSearchBuilder {
 describe("createTuttiAdapter", () => {
   it("resolves location text, applies filters, and trims results", async () => {
     const builder = new FakeSearchBuilder();
-    const adapter = createTuttiAdapter(fakeClient(builder, [{ localityID: "261", name: "Zürich", localityType: "CITY" }]));
+    const adapter = createTuttiAdapter(fakeClient(builder, [{ localityID: "261", name: "Zürich", localityType: "CITY" }]), immediateRun);
 
     await expect(
       adapter.search({
@@ -96,7 +96,7 @@ describe("createTuttiAdapter", () => {
   });
 
   it("returns an actionable error when no locality matches", async () => {
-    const adapter = createTuttiAdapter(fakeClient(new FakeSearchBuilder(), []));
+    const adapter = createTuttiAdapter(fakeClient(new FakeSearchBuilder(), []), immediateRun);
 
     await expect(adapter.search({ query: "velo", location: "Zurch" })).rejects.toThrow(
       'No locality matched "Zurch" - try search_localities'
@@ -104,11 +104,15 @@ describe("createTuttiAdapter", () => {
   });
 
   it("validates the client-side limit", async () => {
-    const adapter = createTuttiAdapter(fakeClient(new FakeSearchBuilder(), []));
+    const adapter = createTuttiAdapter(fakeClient(new FakeSearchBuilder(), []), immediateRun);
 
     await expect(adapter.search({ limit: 31 })).rejects.toThrow("limit must be an integer between 1 and 30");
   });
 });
+
+async function immediateRun<T>(operation: () => Promise<T>): Promise<T> {
+  return operation();
+}
 
 function fakeClient(builder: FakeSearchBuilder, localities: Locality[]): TuttiClient {
   return {
