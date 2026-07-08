@@ -2,6 +2,7 @@
   "name": "tutti-mcp",
   "version": "0.1.0",
   "description": "MCP server and CLI for searching tutti.ch classifieds.",
+  "license": "MIT",
   "type": "module",
   "bin": {
     "tutti-mcp": "./dist/mcp.js",
