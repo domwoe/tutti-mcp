@@ -23,6 +23,18 @@ The package is intentionally anonymous read-only: no login, messaging, favorites
 
 ## Quick Start
 
+After publishing to npm, run the MCP server directly with `npx`:
+
+```sh
+npx -y tutti-mcp
+```
+
+Use the CLI through the `tutti` bin:
+
+```sh
+npx -y -p tutti-mcp tutti search velo --max 300 --limit 5
+```
+
 Run from a local checkout:
 
 ```sh
@@ -37,7 +49,7 @@ The MCP server speaks stdio, so you normally let your client spawn it.
 <summary><strong>Claude Code</strong></summary>
 
 ```sh
-claude mcp add tutti -- node /absolute/path/to/tutti-mcp/dist/mcp.js
+claude mcp add tutti -- npx -y tutti-mcp
 ```
 
 Restart Claude Code or start a new session after adding the server, then check `/mcp`.
@@ -52,8 +64,8 @@ Add this to `claude_desktop_config.json`:
 {
   "mcpServers": {
     "tutti": {
-      "command": "node",
-      "args": ["/absolute/path/to/tutti-mcp/dist/mcp.js"]
+      "command": "npx",
+      "args": ["-y", "tutti-mcp"]
     }
   }
 }
@@ -66,7 +78,7 @@ Restart Claude Desktop after editing the file.
 <summary><strong>Codex</strong></summary>
 
 ```sh
-codex mcp add tutti -- node /absolute/path/to/tutti-mcp/dist/mcp.js
+codex mcp add tutti -- npx -y tutti-mcp
 ```
 
 Start a new Codex session after adding the server; MCP tools are injected when the session starts.
@@ -81,8 +93,8 @@ Most clients accept a config of this shape:
 {
   "mcpServers": {
     "tutti": {
-      "command": "node",
-      "args": ["/absolute/path/to/tutti-mcp/dist/mcp.js"]
+      "command": "npx",
+      "args": ["-y", "tutti-mcp"]
     }
   }
 }
@@ -138,6 +150,9 @@ node dist/cli.js localities "zür"
 Installed package bins:
 
 ```sh
+npx -y -p tutti-mcp tutti search velo --max 300 --limit 5
+npx -y -p tutti-mcp tutti get 81828298
+
 tutti search velo --max 300 --limit 5
 tutti get 81828298
 tutti categories
@@ -172,6 +187,13 @@ Point a client at the built entrypoint:
 
 ```sh
 claude mcp add tutti -- node /absolute/path/to/tutti-mcp/dist/mcp.js
+```
+
+Before publishing:
+
+```sh
+npm pack --dry-run
+npm publish
 ```
 
 ### Verification
